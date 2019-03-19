@@ -1,0 +1,40 @@
+{
+  "name": "hyperflow-awsfargate-test",
+  "processes": [
+    {
+      "name": "fargate-test",
+      "function": "RESTServiceCommand",
+      "type": "dataflow",
+      "firingLimit": 1,
+      "config": {
+        "executor": {
+          "executable": "head",
+          "args": [
+            "-n10",
+            "airports.csv"
+          ],
+        "stdout": "head.out"
+        }
+      },
+      "ins": [
+        0
+      ],
+      "outs": [
+        1
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "airports.csv",
+      "data": [{}]
+    },
+    {
+      "name": "head.out"
+    }
+  ],
+  "ins": [],
+  "outs": []
+}
+
+
